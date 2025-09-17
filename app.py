@@ -18,8 +18,25 @@ genai.configure(api_key="AIzaSyCROELUhDwdfeYcQNHyT3LyL5-BvfjqnnE")
 
 google_model = genai.GenerativeModel("gemini-1.5-flash")
 
+def set_background(image_url):
+    page_bg = f"""
+    <style>
+    [data-testid="stAppViewContainer"] {{
+        background-image: url("{image_url}");
+        background-size: cover;
+        background-attachment: fixed;
+    }}
+    [data-testid="stSidebar"] {{
+        background-color: rgba(255, 255, 255, 0.8);
+    }}
+    </style>
+    """
+    st.markdown(page_bg, unsafe_allow_html=True)
 
-st.title('📚AI Book Summarizer📚🔖🧾')
+# Example usage
+# set_background("https://wallpaperbat.com/img/118542049-global-network-technology-vector.jpg")
+
+st.title("📚 AI Book Summarizer")
 
 st.write('''This free AI book summary generator provides online access to comprehensive plot summaries of books, 
 enabling you to read quickly and efficiently.''')
