@@ -7,34 +7,18 @@ import time
 import pickle
 import numpy as np
 # from llm_module import *
+st.set_page_config(layout="wide")
 
-
-placeholder = st.empty()
 # AIzaSyCxVEVXbzdDmizk1LMG_E8ScZnX6T0pUbc
 # AIzaSyCkCfbMO-1mUhmZuqX7xNQYmNMFaxrZ0lk
 # AIzaSyCROELUhDwdfeYcQNHyT3LyL5-BvfjqnnE
-genai.configure(api_key="AIzaSyCROELUhDwdfeYcQNHyT3LyL5-BvfjqnnE")
 
+img_url = 'https://images.pexels.com/photos/942872/pexels-photo-942872.jpeg'
+
+genai.configure(api_key="AIzaSyCROELUhDwdfeYcQNHyT3LyL5-BvfjqnnE")
 
 google_model = genai.GenerativeModel("gemini-1.5-flash")
 
-def set_background(image_url):
-    page_bg = f"""
-    <style>
-    [data-testid="stAppViewContainer"] {{
-        background-image: url("{image_url}");
-        background-size: cover;
-        background-attachment: fixed;
-    }}
-    [data-testid="stSidebar"] {{
-        background-color: rgba(255, 255, 255, 0.8);
-    }}
-    </style>
-    """
-    st.markdown(page_bg, unsafe_allow_html=True)
-
-# Example usage
-# set_background("https://wallpaperbat.com/img/118542049-global-network-technology-vector.jpg")
 
 st.title("📚 AI Book Summarizer")
 
@@ -131,7 +115,8 @@ elif writer_choice == 'ANY':
     choice_new = st.sidebar.radio(f'Select your choice', options_new)
     
     if choice_new == 'Chat':
-        story = st.text_area("🧑Chat here!!🤖")
+        st.subheader('🧑Chat here!!🤖')
+        story = st.text_area('👇👇')
         prompt = 'You are an Intelligent AI, let\'s have a conversation'
         language_choice = 'English'
         
@@ -197,7 +182,7 @@ if (story == '') or (story == None):
     sleep = 0.5 
 else:
     st.success('Your Summary📚')
-    sleep = 2
+    sleep = 1
 with st.spinner('Thinking...'):
  time.sleep(sleep)
 
@@ -205,13 +190,41 @@ with st.spinner('Thinking...'):
 
 placeholder = st.empty()
 for i in range(len(summary.split(' '))):
-    placeholder.write(' '.join(summary.split(' ')[0:i]).title())
-    time.sleep(0.03)
+    placeholder.write(' '.join(summary.split(' ')[0:i]))
+    time.sleep(0.02)
 
 placeholder.empty()
-st.write(summary.title())
+st.write(summary)
 
 
+# ---------------- FOOTER ----------------
+st.markdown("---")
+
+footer = """
+<div style="position: fixed; left: 0; bottom: 0; width: 100%; 
+            background-color: #f5f5f5; text-align: center; padding: 10px;">
+
+  <p style="margin:5px;">📚 Made with ❤️ by Ankit Mishra</p>
+
+  <a href="https://wa.me/8368061477" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width="30" style="margin:5px;">
+  </a>
+
+  <a href="https://www.linkedin.com/in/dsankitmishra/" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="30" style="margin:5px;">
+  </a>
+
+  <a href="https://www.instagram.com/ankit____mishra/" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="30" style="margin:5px;">
+  </a>
+
+  <a href="https://www.youtube.com/@CodingAnalytics_withAnkit" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" width="35" style="margin:5px;">
+  </a>
+</div>
+"""
+
+st.markdown(footer, unsafe_allow_html=True)
 
 
 
