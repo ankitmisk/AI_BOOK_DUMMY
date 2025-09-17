@@ -115,7 +115,7 @@ elif writer_choice == 'ANY':
     choice_new = st.sidebar.radio(f'Select your choice', options_new)
     
     if choice_new == 'Chat':
-        st.subheader('🧑Chat here!!🤖')
+        st.subheader('🧑Chat here!!🤖🧠🇦🇮👾')
         story = st.text_area('👇👇')
         prompt = 'You are an Intelligent AI, let\'s have a conversation'
         language_choice = 'English'
