@@ -40,8 +40,8 @@ st.title("📚 AI Book Summarizer")
 
 st.write('''This free AI book summary generator provides online access to comprehensive plot summaries of books, 
 enabling you to read quickly and efficiently.''')
-
-st.image('https://cdn.vdraw.ai/se/vdraw/web-pages/ai-book-summay/3in1-basic-plugins/images/ai-book-summarizer.webp',width = 500)
+# 
+# st.image('https://cdn.vdraw.ai/se/vdraw/web-pages/ai-book-summay/3in1-basic-plugins/images/ai-book-summarizer.webp',width = 500)
 
 st.sidebar.title('📚AI Book Summarizer📚🔖🧾')
 st.sidebar.image('https://cdn.zbaseglobal.com/saasbox/resources/png/step1-1__771a77af1df4e1e76d161d49e104d4d6.png')
@@ -57,6 +57,7 @@ if writer_choice == 'Munshi Premchand':
     books_op = ['Karmabhoomi','Godaan','Gaban','Nirmala','Rangbhoomi','Kaphan']
 
     books = st.sidebar.selectbox(f'Select your choice', books_op)
+    books = books.lower()
 
     summary_type = ['short', 'bullet']
     choice_new = st.sidebar.radio(f'Select your choice', summary_type)
