@@ -205,7 +205,7 @@ with st.spinner('Thinking...'):
 
 placeholder = st.empty()
 for i in range(len(summary.split(' '))):
-    placeholder.write(' '.join(summary.split(' ')[0:i]))
+    placeholder.write(' '.join(summary.split(' ')[0:i]).title())
     time.sleep(0.03)
 
 placeholder.empty()
