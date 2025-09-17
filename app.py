@@ -209,7 +209,7 @@ for i in range(len(summary.split(' '))):
     time.sleep(0.03)
 
 placeholder.empty()
-st.write(summary)
+st.write(summary.title())
 
 
 
